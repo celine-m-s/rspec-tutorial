@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :todos
 
+  resource :session, only: [:new, :create]
+
   # get 'todo/new' => 'todos#new', as: :new_todo
 
   # post 'todo/create' => 'todos#create'

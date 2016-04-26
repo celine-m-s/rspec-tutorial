@@ -11,15 +11,14 @@ require 'rails_helper'
 
 feature 'User visits homepage' do
   scenario 'successfully' do
-    visit root_path  # or visit '/'
-
+    sign_in
     expect(page).to have_css 'h1', text: 'Todos'
   end
 end
 
 feature 'User clicks on new todo' do
   scenario 'successfully' do
-    visit root_path
+    sign_in
 
     click_on "New todo"
 
