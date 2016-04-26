@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
 
   def index
-    @todos = Todo.all
+    @todos = Todo.where(email: current_email)
   end
 
   def new
@@ -11,7 +11,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo = Todo.create(todo_params)
+    todo = Todo.create(todo_params.merge(email: current_email))
 
     if todo.save 
       todo.update(state: 1)
